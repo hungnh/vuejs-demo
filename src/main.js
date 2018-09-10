@@ -13,13 +13,12 @@ import {color} from '@/directive/color.directive'
 import {textGreen} from '@/directive/text-green.directive'
 import {textColor} from '@/directive/text-color.directive'
 import VueResource from 'vue-resource'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
+
+// Use VueResource plugin to make API call
 Vue.use(VueResource)
-Vue.use(BootstrapVue)
 
 // Component registrations
 Vue.component('app-header', Header)
