@@ -31,7 +31,10 @@ export default {
   },
   computed: {
     filteredReviews () {
-      return this.reviews.filter(r => r.name.toLowerCase().match(this.searchText.toLowerCase()) || r.review.toLowerCase().match(this.searchText.toLowerCase()))
+      return this.reviews.filter(
+        r => r.name.toLowerCase().match(this.searchText.toLowerCase()) ||
+          r.review.toLowerCase().match(this.searchText.toLowerCase())
+      )
     }
   }
 }

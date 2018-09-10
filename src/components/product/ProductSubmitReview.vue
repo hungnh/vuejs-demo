@@ -1,7 +1,6 @@
 <template>
   <form class="review-form"
-        @submit.prevent="onSubmit"
-        @keyup.enter="onSubmit">
+        @submit.prevent="onSubmit">
 
     <div v-if="errors && errors.length" class="mb-3">
       <b>Please correct following error(s):</b>
@@ -41,6 +40,7 @@
 
 <script>
 import {eventBus} from '../../shared/event-bus'
+import {appConstants} from '../../shared/constants'
 
 export default {
   name: 'ProductSubmitReview',
@@ -54,6 +54,8 @@ export default {
   },
   methods: {
     onSubmit () {
+      this.errors = []
+
       if (this.name && this.review && this.rating) {
         let productReview = {
           name: this.name,
@@ -61,12 +63,20 @@ export default {
           rating: this.rating
         }
 
-        eventBus.$emit('review-submitted', productReview)
+        this.$http.post(`${appConstants.apiEndpoint}/reviews.json`, productReview)
+          .then(response => {
+            console.log(response)
+            if (response.ok) {
+              eventBus.$emit('review-submitted', productReview)
+            }
+          })
+          .catch(error => {
+            console.log(error)
+          })
 
         this.name = null
         this.review = null
         this.rating = null
-        this.errors = []
       } else {
         if (!this.name) this.errors.push('Name required.')
         if (!this.review) this.errors.push('Review required.')
