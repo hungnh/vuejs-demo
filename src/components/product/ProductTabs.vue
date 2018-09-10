@@ -38,6 +38,9 @@ export default {
   .tab {
     overflow: hidden;
     background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
   }
 
   .tab button {
@@ -58,8 +61,8 @@ export default {
   .tab button.active {
     background-color: #fff;
     color: #16C0B0;
+    font-weight: 600;
     text-decoration: underline;
-    border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
     border-bottom: none;
   }
