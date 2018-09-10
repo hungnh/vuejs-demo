@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <p v-if="!reviews || !reviews.length">There are no reviews yet.</p>
+  <div class="mt-3 mb-3">
+    <div v-if="!reviews || !reviews.length">There are no reviews yet.</div>
     <div v-else>
-      <label>
-        <input type="text" v-model="searchText" placeholder="Filter reviews..."/>
-      </label>
+      <input type="text" class="form-control w-50 mb-3"
+             v-model="searchText" placeholder="Filter reviews..."/>
       <ul>
         <li v-for="(review, index) in filteredReviews" :key="index">
           <p>{{ review.name }} said "{{ review.review }}"; Rating: {{ review.rating }}</p>
@@ -15,7 +14,7 @@
 </template>
 
 <script>
-import {eventBus} from '../../event-bus'
+import {eventBus} from '../../shared/event-bus'
 
 export default {
   name: 'ProductReviewList',

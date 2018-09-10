@@ -1,16 +1,17 @@
 <template>
   <div class="product-tabs">
-    <span class="tab"
-          v-for="(tab, index) in tabs"
-          :key="index"
-          @click="selectedTab = tab"
-          :class="{ activeTab: selectedTab === tab }">{{ tab }}</span>
+    <div class="tab">
+      <button v-for="(tab, index) in tabs" :key="index"
+              @click="selectedTab = tab"
+              :class="{ active: selectedTab === tab }">{{ tab }}
+      </button>
+    </div>
 
-    <div v-show="selectedTab === 'Reviews'">
+    <div v-show="selectedTab === 'Reviews'" class="tab-content">
       <app-product-review-list></app-product-review-list>
     </div>
 
-    <div v-show="selectedTab === 'Make a Review'">
+    <div v-show="selectedTab === 'Make a Review'" class="tab-content">
       <app-product-submit-review></app-product-submit-review>
     </div>
   </div>
@@ -31,18 +32,41 @@ export default {
 <style scoped>
   .product-tabs {
     margin: 40px;
+    width: 100%;
   }
 
   .tab {
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
     cursor: pointer;
+    padding: 10px 15px;
+    transition: 0.3s;
+    font-size: 17px;
   }
 
-  .tab:nth-child(n+2) {
-    margin-left: 20px;
+  .tab button:hover {
+    background-color: #ddd;
   }
 
-  .activeTab {
+  .tab button.active {
+    background-color: #fff;
     color: #16C0B0;
     text-decoration: underline;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+  }
+
+  .tab-content {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
   }
 </style>

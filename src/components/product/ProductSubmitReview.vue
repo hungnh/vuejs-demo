@@ -3,26 +3,27 @@
         @submit.prevent="onSubmit"
         @keyup.enter="onSubmit">
 
-    <div v-if="errors && errors.length">
+    <div v-if="errors && errors.length" class="mb-3">
       <b>Please correct following error(s):</b>
       <ul>
         <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
       </ul>
     </div>
 
-    <div>
+    <div class="mb-3">
       <label for="name">Name:</label>
-      <input id="name" v-model="name" placeholder="name">
+      <input id="name" class="form-control" v-model="name">
     </div>
 
-    <div>
+    <div class="mb-3">
       <label for="review">Review:</label>
-      <textarea id="review" v-model="review"></textarea>
+      <textarea id="review" class="form-control" v-model="review"></textarea>
     </div>
 
-    <div>
+    <div class="mb-3">
       <label for="rating">Rating:</label>
-      <select id="rating" v-model.number="rating">
+      <select id="rating" class="form-control"
+              v-model.number="rating">
         <option>5</option>
         <option>4</option>
         <option>3</option>
@@ -32,14 +33,14 @@
     </div>
 
     <div>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="btn btn-primary">
     </div>
 
   </form>
 </template>
 
 <script>
-import {eventBus} from '../../event-bus'
+import {eventBus} from '../../shared/event-bus'
 
 export default {
   name: 'ProductSubmitReview',
@@ -79,15 +80,12 @@ export default {
 <style scoped>
   .review-form {
     width: 400px;
-    padding: 20px;
-    margin: 40px;
-    border: 1px solid #d8d8d8;
+    padding: 5px;
+    margin: 10px;
   }
 
   input {
     width: 100%;
-    height: 25px;
-    margin-bottom: 20px;
   }
 
   textarea {

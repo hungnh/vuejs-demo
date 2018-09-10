@@ -3,7 +3,7 @@
        v-color:background.delayed="'#54C69D'"
        v-color:text.delayed="'white'"
        v-color:border="'#54C69D'">
-    <p>Cart({{ cart.length }})</p>
+    Cart({{ cart.length }})
   </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
     margin-right: 25px;
     float: right;
     border: 1px solid #d8d8d8;
-    padding: 5px 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
   }
 </style>

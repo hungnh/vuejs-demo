@@ -26,7 +26,8 @@
         </div>
       </div>
 
-      <button :class="{ disabledButton: !inStock }"
+      <button :class="[inStock ? 'btn-primary' : 'disabledButton']"
+              class="btn"
               @click="addToCart"
               :disabled="!inStock">
         Add to Cart
@@ -98,12 +99,6 @@ export default {
 </script>
 
 <style scoped>
-  .nav-bar {
-    background: linear-gradient(-90deg, #84CF6A, #16C0B0);
-    height: 60px;
-    margin-bottom: 15px;
-  }
-
   .product {
     display: flex;
     flex-flow: wrap;
@@ -129,26 +124,18 @@ export default {
 
   .color-box-wrapper {
     display: flex;
+    margin-bottom: 20px;
   }
 
   .color-box {
     width: 40px;
     height: 40px;
     margin-top: 5px;
+    border-radius: 5px;
   }
 
   .color-box:nth-child(n+2) {
     margin-left: 5px;
-  }
-
-  button {
-    margin-top: 30px;
-    border: none;
-    background-color: #1E95EA;
-    color: white;
-    height: 40px;
-    width: 100px;
-    font-size: 14px;
   }
 
   .disabledButton {
