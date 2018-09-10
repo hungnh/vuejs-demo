@@ -52,6 +52,7 @@ export default {
     padding: 10px 15px;
     transition: 0.3s;
     font-size: 17px;
+    color: grey;
   }
 
   .tab button:hover {
@@ -61,10 +62,8 @@ export default {
   .tab button.active {
     background-color: #fff;
     color: #16C0B0;
-    font-weight: 600;
-    text-decoration: underline;
     border-radius: 5px 5px 0 0;
-    border-bottom: none;
+    border-bottom: 3px solid #16C0B0;
   }
 
   .tab-content {
