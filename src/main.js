@@ -13,7 +13,6 @@ import {color} from '@/directive/color.directive'
 import {textGreen} from '@/directive/text-green.directive'
 import {textColor} from '@/directive/text-color.directive'
 import VueResource from 'vue-resource'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
 

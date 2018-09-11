@@ -40,7 +40,7 @@
 
 <script>
 import {eventBus} from '../../shared/event-bus'
-import {appConstants} from '../../shared/constants'
+import reviewsService from '../../shared/services/reviews'
 
 export default {
   name: 'ProductSubmitReview',
@@ -63,16 +63,8 @@ export default {
           rating: this.rating
         }
 
-        this.$http.post(`${appConstants.apiEndpoint}/reviews.json`, productReview)
-          .then(response => {
-            console.log(response)
-            if (response.ok) {
-              eventBus.$emit('review-submitted', productReview)
-            }
-          })
-          .catch(error => {
-            console.log(error)
-          })
+        reviewsService.submitReview(productReview)
+          .then(() => eventBus.$emit('review-submitted'))
 
         this.name = null
         this.review = null

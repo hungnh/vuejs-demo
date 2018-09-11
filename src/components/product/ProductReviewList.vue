@@ -15,13 +15,27 @@
 
 <script>
 import {eventBus} from '../../shared/event-bus'
+import reviewsService from '../../shared/services/reviews'
 
 export default {
   name: 'ProductReviewList',
   created () {
-    eventBus.$on('review-submitted', productReview => {
-      this.reviews.push(productReview)
+    this.getAllReviews()
+
+    eventBus.$on('review-submitted', () => {
+      this.getAllReviews()
     })
+  },
+  methods: {
+    getAllReviews () {
+      reviewsService.getAllReviews()
+        .then(data => {
+          this.reviews = []
+          for (let key in data) {
+            this.reviews.push(data[key])
+          }
+        })
+    }
   },
   data () {
     return {
