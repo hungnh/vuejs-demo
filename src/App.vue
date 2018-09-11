@@ -1,30 +1,18 @@
 <template>
-  <div id="app">
-
+  <div id="app" class="container">
     <app-header></app-header>
 
-    <app-cart :cart="cart"></app-cart>
-    <app-product :premium="premium" @add-to-cart="updateCart"></app-product>
+    <div class="contents">
+      <router-view></router-view>
+    </div>
 
     <app-footer></app-footer>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  data () {
-    return {
-      premium: false,
-      cart: []
-    }
-  },
-  methods: {
-    updateCart (id) {
-      this.cart.push(id)
-    }
-  }
+  name: 'App'
 }
 </script>
 
@@ -36,5 +24,10 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+  }
+
+  .contents {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 </style>

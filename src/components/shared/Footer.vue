@@ -13,7 +13,7 @@ export default {
 <style scoped>
   footer div {
     height: 60px;
-    margin: 8px;
+    margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid gray;
     color: grey;

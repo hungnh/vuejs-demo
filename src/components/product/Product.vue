@@ -33,8 +33,6 @@
         Add to Cart
       </button>
     </div>
-
-    <app-product-tabs></app-product-tabs>
   </div>
 </template>
 

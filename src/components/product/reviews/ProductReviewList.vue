@@ -1,5 +1,7 @@
 <template>
-  <div class="mt-3 mb-3">
+  <div class="product-reviews mt-3 mb-3">
+    <h4 class="title">Product Reviews</h4>
+    <hr>
     <div v-if="!reviews || !reviews.length">There are no reviews yet.</div>
     <div v-else>
       <input type="text" class="form-control w-50 mb-3"
@@ -14,17 +16,12 @@
 </template>
 
 <script>
-import {eventBus} from '../../shared/event-bus'
-import reviewsService from '../../shared/services/reviews.service'
+import reviewsService from '../../../shared/services/reviews.service'
 
 export default {
   name: 'ProductReviewList',
   created () {
     this.getAllReviews()
-
-    eventBus.$on('review-submitted', () => {
-      this.getAllReviews()
-    })
   },
   methods: {
     getAllReviews () {
@@ -55,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .title {
+    color: rgb(64, 193, 174);
+  }
 </style>
