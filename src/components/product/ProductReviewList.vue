@@ -15,7 +15,7 @@
 
 <script>
 import {eventBus} from '../../shared/event-bus'
-import reviewsService from '../../shared/services/reviews'
+import reviewsService from '../../shared/services/reviews.service'
 
 export default {
   name: 'ProductReviewList',
@@ -29,10 +29,10 @@ export default {
   methods: {
     getAllReviews () {
       reviewsService.getAllReviews()
-        .then(data => {
+        .then(response => {
           this.reviews = []
-          for (let key in data) {
-            this.reviews.push(data[key])
+          for (let key in response) {
+            this.reviews.push(response[key])
           }
         })
     }

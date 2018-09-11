@@ -40,7 +40,7 @@
 
 <script>
 import {eventBus} from '../../shared/event-bus'
-import reviewsService from '../../shared/services/reviews'
+import reviewsService from '../../shared/services/reviews.service'
 
 export default {
   name: 'ProductSubmitReview',

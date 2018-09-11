@@ -13,11 +13,21 @@ import {color} from '@/directive/color.directive'
 import {textGreen} from '@/directive/text-green.directive'
 import {textColor} from '@/directive/text-color.directive'
 import VueResource from 'vue-resource'
+import {appConstants} from '@/shared/constants'
 
 Vue.config.productionTip = false
 
 // Use VueResource plugin to make API call
 Vue.use(VueResource)
+Vue.http.options.root = appConstants.apiEndpoint
+Vue.http.interceptors.push((request, next) => {
+  request.headers.set('X-Custom-Header', 'Custom Header Demo')
+  console.log('Request: ', request)
+
+  next(response => {
+    console.log('Response: ', response)
+  })
+})
 
 // Component registrations
 Vue.component('app-header', Header)
